@@ -1,0 +1,38 @@
+/* Estilos para a tabela */
+.table-container {
+    width: 100%; /* Faz a tabela ocupar toda a largura da tela */
+    margin: 0 auto; /* Centraliza a tabela */
+    padding: 20px; /* Adiciona espaçamento ao redor da tabela */
+}
+
+table {
+    width: 100%; /* Garante que a tabela ocupe toda a largura disponível */
+    border-collapse: collapse; /* Remove espaçamento entre as células */
+    text-align: left; /* Alinha o texto à esquerda por padrão */
+}
+
+th, td {
+    padding: 12px 15px; /* Espaçamento interno para as células */
+    border: 1px solid #ddd; /* Adiciona borda à tabela */
+    text-align: justify; /* Justifica o texto dentro das células */
+}
+
+th {
+    background-color: #f2f2f2; /* Cor de fundo para os cabeçalhos */
+    font-weight: bold; /* Deixa o texto do cabeçalho em negrito */
+}
+
+td {
+    background-color: #fff; /* Cor de fundo para as células de dados */
+}
+
+/* Estilos para o link */
+a {
+    color: #1e90ff; /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+

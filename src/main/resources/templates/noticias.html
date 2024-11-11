@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Notícias</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Referência ao arquivo CSS -->
+</head>
+<body>
+    <div class="table-container">
+        <h1>Lista de Notícias</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Subtítulo</th>
+                    <th>Autor</th>
+                    <th>Data de Publicação</th>
+                    <th>Conteúdo</th>
+                    <th>Link</th> <!-- Nova coluna para o Link -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="noticia : ${noticias}">
+                    <td th:text="${noticia.titulo}"></td>
+                    <td th:text="${noticia.subtitulo}"></td>
+                    <td th:text="${noticia.autor}"></td>
+                    <td th:text="${noticia.dataPublicacao}"></td>
+                    <td th:text="${noticia.conteudo}"></td>
+                    <td>
+                        <!-- Link para a página completa da notícia -->
+                        <a th:href="${noticia.url}" target="_blank">Leia mais</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
