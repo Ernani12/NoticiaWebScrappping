@@ -36,18 +36,30 @@ public class NoticiaService {
                 
                 // Seleciona o subtítulo a partir da div com classe "line-clamp-1"
                 String subtitle = article.select("div.line-clamp-1").text();
-                
-                // Seleciona a data de publicação da div com classe "mt-3 text-wl-neutral-500"
-                String dataPublicacao = article.select("div.mt-3.text-wl-neutral-500").text();
 
-                // Verifica se título, link, subtítulo e data de publicação estão presentes antes de criar a notícia
-                if (title != null && !title.isEmpty() && link != null && !link.isEmpty() && subtitle != null && !subtitle.isEmpty() && dataPublicacao != null && !dataPublicacao.isEmpty()) {
+                // Verifica se título, link e subtítulo estão presentes antes de criar a notícia
+                if (title != null && !title.isEmpty() && link != null && !link.isEmpty() && subtitle != null && !subtitle.isEmpty()) {
 
                     Noticia noticia = new Noticia();
                     noticia.setTitulo(title);
                     noticia.setUrl(link);
-                    noticia.setSubtitulo(subtitle); // Ajuste para definir o subtítulo
-                    noticia.setDataPublicacao(dataPublicacao); // Ajuste para definir a data de publicação
+                    noticia.setSubtitulo(subtitle);
+
+                    // Acessa a página específica da notícia para capturar o autor e a data de publicação
+                    try {
+                        Document noticiaDoc = Jsoup.connect(link).get();
+
+                        // Seleciona o autor a partir de uma div ou elemento específico
+                        String autor = noticiaDoc.select("p.flex.flex-wrap.items-center").text();
+                        noticia.setAutor(autor);
+
+                        // Seleciona a data de publicação a partir do parágrafo com a classe específica
+                        String dataPublicacao = noticiaDoc.select("p.im-mob-core-description.text-wl-neutral-600").text();
+                        noticia.setDataPublicacao(dataPublicacao);
+
+                    } catch (IOException e) {
+                        System.out.println("Erro ao acessar a URL da notícia: " + link);
+                    }
 
                     // Adiciona a notícia à lista
                     noticias.add(noticia);
