@@ -45,17 +45,26 @@ public class NoticiaService {
                     noticia.setUrl(link);
                     noticia.setSubtitulo(subtitle);
 
-                    // Acessa a página específica da notícia para capturar o autor e a data de publicação
+                    // Acessa a página específica da notícia para capturar o autor, data de publicação e conteúdo
                     try {
                         Document noticiaDoc = Jsoup.connect(link).get();
 
-                        // Seleciona o autor a partir de uma div ou elemento específico
+                        // Seleciona o autor
                         String autor = noticiaDoc.select("p.flex.flex-wrap.items-center").text();
                         noticia.setAutor(autor);
 
-                        // Seleciona a data de publicação a partir do parágrafo com a classe específica
+                        // Seleciona a data de publicação
                         String dataPublicacao = noticiaDoc.select("p.im-mob-core-description.text-wl-neutral-600").text();
                         noticia.setDataPublicacao(dataPublicacao);
+
+                        // Seleciona o conteúdo completo do artigo
+                        String conteudoCompleto = noticiaDoc.select("article.im-article.clear-fix").text();
+
+                        // Limita o conteúdo a 100 caracteres e adiciona "..." se for maior que 100
+                        String conteudoLimitado = conteudoCompleto.length() > 100
+                                ? conteudoCompleto.substring(0, 100) + "..."
+                                : conteudoCompleto;
+                        noticia.setConteudo(conteudoLimitado); // Define o conteúdo com os primeiros 100 caracteres e "..."
 
                     } catch (IOException e) {
                         System.out.println("Erro ao acessar a URL da notícia: " + link);
