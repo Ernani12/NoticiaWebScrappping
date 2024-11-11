@@ -34,7 +34,7 @@ A aplicação **Notícias Scraper** é um projeto desenvolvido em **Spring Boot*
 ## Tecnologias
 
 - **Spring Boot 3.3.5**: Framework principal para o desenvolvimento da API RESTful.
-- **Jsoup 1.14.3**: Biblioteca para parsing de HTML e scraping de conteúdo da web.
+- **Jsoup 1.17.2**: Biblioteca para parsing de HTML e scraping de conteúdo da web.
 - **Lombok**: Usado para gerar automaticamente os getters e setters das classes.
 - **Java 17**: Versão do JDK usada no projeto.
 
