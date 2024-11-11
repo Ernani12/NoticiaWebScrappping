@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Noticia {
+
     private String url;
     private String titulo;
     private String subtitulo;
@@ -13,15 +14,12 @@ public class Noticia {
     private String dataPublicacao;
     private String conteudo;
 
-    // Getters e setters
- 
+    /**
+     * Método toString mais legível e com formato consistente
+     */
     @Override
     public String toString() {
-        return "URL: " + url + "\n" +
-               "Título: " + titulo + "\n" +
-               "Subtítulo: " + subtitulo + "\n" +
-               "Autor: " + autor + "\n" +
-               "Data: " + dataPublicacao + "\n" +
-               "Conteúdo: " + conteudo + "\n";
+        return String.format("URL: %s%nTítulo: %s%nSubtítulo: %s%nAutor: %s%nData: %s%nConteúdo: %s%n", 
+                             url, titulo, subtitulo, autor, dataPublicacao, conteudo);
     }
 }
