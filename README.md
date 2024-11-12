@@ -44,7 +44,7 @@ A aplicação **Notícias Scraper** é um projeto desenvolvido em **Spring Boot*
 
    ```bash
    git clone https://github.com/seu-usuario/noticias-scraper.git
-   cd noticias-scraper
+  
 
 2. **Compilar e Rodar a Aplicação:
 
