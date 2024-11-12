@@ -43,7 +43,7 @@ public class NoticiaService implements NoticiaExtractor {
         return noticias;
     }
 
-    private Noticia extrairNoticia(Element article) {
+    protected Noticia extrairNoticia(Element article) {
         String title = article.select("h2").text();
         String link = article.select("a").attr("href");
         String subtitle = article.select("div.line-clamp-1").text();
