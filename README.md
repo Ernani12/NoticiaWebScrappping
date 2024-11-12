@@ -53,10 +53,12 @@ A aplicação **Notícias Scraper** é um projeto desenvolvido em **Spring Boot*
 
 3. ** Testar a API:
 siga para endpoint no browser
-```bash
-http://localhost:8080/noticias
+
+    ```bash
+    http://localhost:8080/noticias
 
 # Notícias Scraper - Spring Boot OBSERVAÇAO
+
    ```bash
   A  requisiçao  que voces pediram para o bootao CARREGAR MAIS, pode
 estar modoficada e mesmo, consultando pelo Dev Tool do Browser
