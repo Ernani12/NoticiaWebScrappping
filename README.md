@@ -43,7 +43,7 @@ A aplicação **Notícias Scraper** é um projeto desenvolvido em **Spring Boot*
 1. **Clonar o repositório**:
 
    ```bash
-   git clone https://github.com/seu-usuario/noticias-scraper.git
+   https://github.com/Ernani12/NoticiaWebScrappping.git
   
 
 2. **Compilar e Rodar a Aplicação:
