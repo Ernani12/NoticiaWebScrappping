@@ -53,5 +53,41 @@ A aplicação **Notícias Scraper** é um projeto desenvolvido em **Spring Boot*
 
 3. ** Testar a API:
 
+
+
+# Notícias Scraper - Spring Boot OBSERVAÇAO
    ```bash
-   http://localhost:8080/noticias
+  A  requisiçao  que voces pediram para o bootao CARREGAR MAIS, pode
+estar modoficada e mesmo, consultando pelo Dev Tool do Browser
+e mostrando  uma requisiçao do TIPO POST , ela bloquea de nao deixa
+fazer requisiçao para endereço. Mas o codigo era so adicionar o metodo:
+
+//removido porque tem problema de requisiçao no link POST do Botao Carregar Mais..
+ public void carregarMaisNoticias() {
+        // Realiza 3 requisições antes de carregar as notícias
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Requisição " + i + ":");
+            try {
+                // Realiza uma requisição POST com dados fictícios
+                Connection.Response response = Jsoup.connect("https://www.infomoney.com.br/wp-json/infomoney/v1/cards")
+                        .ignoreContentType(true)
+                        .method(Connection.Method.POST)  // Alterando para POST
+                        .header("Content-Type", "application/json")  // Ajuste no header
+                        .header("Authorization", "Bearer <seu-token>")  // Inclua o token de autenticação, se necessário
+                        .header("Origin", "https://www.infomoney.com.br")  // Origem para CORS
+                        .requestBody("{\"key\":\"value\"}")  // Dados fictícios no corpo (substitua conforme necessário)
+                        .execute();
+    
+                System.out.println("Status Code: " + response.statusCode());
+                System.out.println("Response: " + response.body());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("\n-------------------------\n");
+        }
+    }
+
+
+
+
+   
